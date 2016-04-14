@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import android.support.annotation.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * Base class for many Conversation List activities. This will handle the common actions of multi

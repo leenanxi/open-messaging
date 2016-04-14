@@ -25,6 +25,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.Loader;
+import android.support.v4.view.MenuItemCompat;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -135,7 +136,6 @@ public class BuglePhotoViewController extends PhotoViewController {
         mShareItem = menu.findItem(R.id.action_share);
         mShareActionProvider = (ShareActionProvider) mShareItem.getActionProvider();
         updateShareActionProvider();
-
         mSaveItem = menu.findItem(R.id.action_save);
         return true;
     }

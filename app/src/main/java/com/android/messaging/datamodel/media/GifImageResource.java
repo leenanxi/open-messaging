@@ -22,8 +22,6 @@ import android.media.ExifInterface;
 import android.support.rastermill.FrameSequence;
 import android.support.rastermill.FrameSequenceDrawable;
 
-
-
 import com.android.messaging.util.Assert;
 
 import java.io.IOException;

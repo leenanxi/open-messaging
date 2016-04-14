@@ -17,23 +17,24 @@
 -->
 
 <resources>
-    <style name="PhotoViewTheme" parent="Theme.AppCompat">
-        <item name="actionBarStyle">@style/AppCompat.ActionBar</item>
-        <item name="colorPrimaryDark">@color/photo_status_bar_black</item>
+    <style name="PhotoViewTheme" parent="android:Theme.Holo">
+        <item name="android:colorPrimaryDark">@color/photo_status_bar_black</item>
         <item name="android:navigationBarColor">@color/photo_status_bar_black</item>
-        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowNoTitle">false</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowBackground">@color/solid_black</item>
+        <item name="android:actionBarStyle">@style/Holo.ActionBar</item>
     </style>
     <style name="PhotoViewTheme.Translucent">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
     <style name="PhotoViewTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
-    <style name="AppCompat.ActionBar" parent="Widget.AppCompat.ActionBar">
-        <item name="background">@drawable/actionbar_translucent</item>
+    <style name="Holo.ActionBar" parent="android:Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/actionbar_translucent</item>
     </style>
 </resources>

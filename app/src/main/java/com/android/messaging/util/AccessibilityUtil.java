@@ -27,7 +27,7 @@ import android.view.accessibility.AccessibilityManager;
 import com.android.messaging.Factory;
 import com.android.messaging.R;
 
-import android.support.annotation.Nullable;
+import javax.annotation.Nullable;
 
 public class AccessibilityUtil {
     public static String sContentDescriptionDivider;

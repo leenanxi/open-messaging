@@ -31,13 +31,13 @@
     <!-- Application theme. -->
     <style name="BugleTheme" parent="BugleBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-        <item name="android:dropDownListViewStyle">@style/DropDownListViewStyle</item>
-        <item name="colorPrimary">@color/action_bar_background_color</item>
-        <item name="colorPrimaryDark">@color/action_bar_background_color_dark</item>
-        <item name="colorAccent">@color/action_bar_background_color</item>
-        <item name="android:textColorHighlight">@color/text_highlight_color</item>
-        <item name="actionBarStyle">@style/BugleActionBar</item>
-        <item name="apnPreferenceStyle">@style/ApnPreference</item>
+         <item name="android:dropDownListViewStyle">@style/DropDownListViewStyle</item>
+         <item name="colorPrimary">@color/action_bar_background_color</item>
+         <item name="colorPrimaryDark">@color/action_bar_background_color_dark</item>
+         <item name="colorAccent">@color/action_bar_background_color</item>
+         <item name="android:textColorHighlight">@color/text_highlight_color</item>
+         <item name="actionBarStyle">@style/BugleActionBar</item>
+         <item name="apnPreferenceStyle">@style/ApnPreference</item>
     </style>
 
     <style name="BugleTheme.ConversationActivity"
@@ -83,13 +83,13 @@
     </style>
 
     <style name="BugleActionBarTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/action_bar_title_text_color</item>
-        <item name="android:textSize">@dimen/action_bar_text_size</item>
-        <item name="android:lines">1</item>
+      <item name="android:textColor">@color/action_bar_title_text_color</item>
+      <item name="android:textSize">@dimen/action_bar_text_size</item>
+      <item name="android:lines">1</item>
     </style>
 
     <style name="ConversationActionBarTitleTextStyle" parent="BugleActionBarTitleTextStyle">
-        <item name="android:background">?android:attr/selectableItemBackground</item>
+      <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
 
     <style name="BuglePhotoViewTheme" parent="PhotoViewTheme.Translucent">
@@ -353,7 +353,7 @@
     </style>
 
     <style name="DropDownListViewStyle">
-        <item name="android:dividerHeight">0dp</item>
+      <item name="android:dividerHeight">0dp</item>
     </style>
 
     <style name="ComposeMessageViewTextCounterStyle">
