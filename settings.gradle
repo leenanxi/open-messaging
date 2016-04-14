@@ -1,0 +1,1 @@
+include ':app', ':com.android.ex.chips', ':com.android.ex.chips', ':com.android.vcard', ':android.support.rastermill', ':com.android.common', ':com.android.common', ':com.android.ex.photo'
