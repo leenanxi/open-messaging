@@ -239,7 +239,7 @@ public class UIIntentsImpl extends UIIntents {
         intent.putExtra(Intent.EXTRA_MIME_TYPES, MessagePartData.ACCEPTABLE_IMAGE_TYPES);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType(ContentType.IMAGE_UNSPECIFIED);
-
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         fragment.startActivityForResult(intent, REQUEST_PICK_IMAGE_FROM_DOCUMENT_PICKER);
     }
 

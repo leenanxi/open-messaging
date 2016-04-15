@@ -17,6 +17,7 @@ package com.android.messaging.ui.mediapicker;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.ClipData;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,6 +27,9 @@ import com.android.messaging.datamodel.data.PendingAttachmentData;
 import com.android.messaging.ui.UIIntents;
 import com.android.messaging.util.ImageUtils;
 import com.android.messaging.util.SafeAsyncTask;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Wraps around the functionalities to allow the user to pick images from the document
@@ -57,7 +61,7 @@ public class DocumentImagePicker {
 
     /**
      * Creates a new instance of DocumentImagePicker.
-     * @param activity The activity that owns the picker, or the activity that hosts the owning
+     * @param fragment The activity that owns the picker, or the activity that hosts the owning
      *        fragment.
      */
     public DocumentImagePicker(final Fragment fragment,
@@ -79,27 +83,40 @@ public class DocumentImagePicker {
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         if (requestCode == UIIntents.REQUEST_PICK_IMAGE_FROM_DOCUMENT_PICKER &&
                 resultCode == Activity.RESULT_OK) {
-            // Sometimes called after media item has been picked from the document picker.
-            String url = data.getStringExtra(EXTRA_PHOTO_URL);
-            if (url == null) {
-                // we're using the builtin photo picker which supplies the return
-                // url as it's "data"
-                url = data.getDataString();
-                if (url == null) {
+            List<Uri> uris = new ArrayList<>();
+            //form standard file picker
+            ClipData clipData = data.getClipData();
+            if(clipData != null && clipData.getItemCount()>0) {
+                int count = clipData.getItemCount();
+                for(int i=0; i< count;i++) {
+                    ClipData.Item item = clipData.getItemAt(i);
+                    uris.add(item.getUri());
+                }
+            }
+            if(uris.size()==0){
+                Uri uri = data.getData();
+                if(uri!=null){
+                    uris.add(uri);
+                }
+            }
+            //form other file picker
+            if(uris.size()==0) {
+                String url = data.getStringExtra(EXTRA_PHOTO_URL);
+                if(url != null) {
+                    final Uri uriParsed = Uri.parse(url);
+                    uris.add(uriParsed);
+                } else {
                     final Bundle extras = data.getExtras();
                     if (extras != null) {
-                        final Uri uri = (Uri) extras.getParcelable(Intent.EXTRA_STREAM);
-                        if (uri != null) {
-                            url = uri.toString();
-                        }
+                        final Uri uriStream = (Uri) extras.getParcelable(Intent.EXTRA_STREAM);
+                        uris.add(uriStream);
                     }
                 }
             }
-
-            // Guard against null uri cases for when the activity returns a null/invalid intent.
-            if (url != null) {
-                final Uri uri = Uri.parse(url);
-                prepareDocumentForAttachment(uri);
+            if(uris.size()>0){
+                for(int i=0;i<uris.size();i++) {
+                    prepareDocumentForAttachment(uris.get(i));
+                }
             }
         }
     }
